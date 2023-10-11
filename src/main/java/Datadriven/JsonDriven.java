@@ -61,11 +61,12 @@ public class JsonDriven {
         Object object = jsonParser.parse(fileReader);
 
         JSONObject jsonObject = (JSONObject) object;
-        JSONArray array = (JSONArray) jsonObject.get("userlogins");
+        JSONArray new = (JSONArray) jsonObject.get("userlogins");
 
-        String arr[] = new String[array.size()];
-        for (int i = 0; i < array.size(); i++) {
-            JSONObject users = (JSONObject) array.get(i);
+        String arr[] = new String[new.size()];
+        //this loop iterates over each element in the collection. It assumes new is a collection of JSONObject instances.
+        for (int i = 0; i < new.size(); i++) {
+            JSONObject users = (JSONObject) new.get(i);
             String username = (String) users.get("username");
             String password = (String) users.get("password");
 
